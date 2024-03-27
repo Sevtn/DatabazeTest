@@ -10,9 +10,9 @@ import java.util.List;
 @ApplicationScoped
 public class PersonRepository implements PanacheRepository<Person> {
 
- public List<Person> listByName(String name){
+ public List<Person> listByName(String driver){
 
-     return find("name", name).list();
+     return find("Driver", driver).list();
  }
 
     public Person listById(Long id){

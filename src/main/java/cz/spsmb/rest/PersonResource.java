@@ -49,11 +49,11 @@ public class PersonResource {
     @Transactional
     public Response save(Person person) {
         person.setId(0l);
-        if (person.getName() != null && person.getAge() > 0) {
+        if (person.getDriver() != null && person.getAge() > 0) {
             personRepository.persist(person);
             return Response.ok().entity("ok").build();
         } else {
-            return Response.status(400).entity("Person must have attributes \"name\" and \"age\".").build();
+            return Response.status(400).entity("Person must have attributes \"driver\" and \"age\".").build();
         }
 
     }

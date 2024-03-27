@@ -5,19 +5,19 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "test-person-table")
+@Table(name = "driver-table")
 public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-    String name;
+    String driver;
     int age;
 
     public Person(){};
 
     public Person(String name, Integer age){
-        this.name = name;
+        this.driver = driver;
         this.age = age;
     }
 
@@ -29,12 +29,12 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDriver() {
+        return driver;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDriver(String driver) {
+        this.driver = driver;
     }
 
     public int getAge() {
@@ -49,8 +49,20 @@ public class Person implements Serializable {
     public String toString() {
         return "Person{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", driver='" + driver + '\'' +
                 ", age=" + age +
+                ", bus=" + bus +
                 '}';
+    }
+
+    @OneToOne(fetch = FetchType.LAZY)
+    Bus bus;
+
+    public Bus getBus() {
+        return bus;
+    }
+
+    public void setBus(Bus bus) {
+        this.bus = bus;
     }
 }
