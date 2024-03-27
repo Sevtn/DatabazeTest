@@ -3,6 +3,7 @@ package cz.spsmb.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "driver-table")
@@ -20,6 +21,10 @@ public class Person implements Serializable {
         this.driver = driver;
         this.age = age;
     }
+
+    public Person(String driver, Integer age, List<String> linka) {
+    }
+
 
     public long getId() {
         return id;

@@ -1,5 +1,6 @@
 package cz.spsmb.view;
 
+import cz.spsmb.dto.BusDTO;
 import cz.spsmb.model.Person;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
@@ -17,6 +18,7 @@ public class TestView {
     @Inject
     PersonRepository personRepository;
 
+    BusDTO newPerson = new BusDTO();
 
     List<Person> personList;
     String name;
@@ -51,9 +53,18 @@ public class TestView {
         this.age = age;
     }
 
+
+    public BusDTO getNewPerson() {
+        return newPerson;
+    }
+
+    public void setNewPerson(BusDTO newPerson) {
+        this.newPerson = newPerson;
+    }
+
     @Transactional
     public void savePerson() {
-        Person person = new Person(name, age);
+        Person person = new Person(newPerson.getDriver(), newPerson.getAge(),newPerson.getLinka());
         personRepository.persist(person);
         personList.add(person);
         System.out.println("Saved " + person);

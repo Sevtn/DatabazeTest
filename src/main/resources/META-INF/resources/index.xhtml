@@ -20,16 +20,18 @@
 
         <h1>Bus Maker 9000</h1>
 <h2>Model</h2>
-        <p:inputText id="input-category" value="#{busView.newBus.model}"/>
+        <p:inputText id="input-category" value="#{busView.newBus.age}"/>
         <h2>Age</h2>
         <p:inputNumber id="input-age" value="#{busView.newBus.age}"/>
 
+<p></p>
+        <h2>Driver Name</h2>
+        <p:inputText id="input-driver" value="#{testView.newPerson.driver}"/>
+        <h2>Driver Age</h2>
+        <p:inputText id="input-age0" value="#{testView.newPerson.linka}"/>
 
-
-
-
-
-        <p:commandButton value="Save" action="#{busView.saveBus}" update="@form"></p:commandButton>
+        <p:commandButton value="Save Bus" action="#{busView.saveBus}"  update="@form"></p:commandButton>
+        <p:commandButton value="Save Driver" action="#{testView.savePerson}" update="@form"></p:commandButton>
     </h:form>
 
 
@@ -42,5 +44,14 @@
           ID:#{bus.id}
     </p:dataList>
 
+
+    <p:dataList value="#{testView.personList}" var="bus" type="ordered">
+        <f:facet name="header">
+            Person List
+        </f:facet>
+        Model: #{person.driver},<p></p>
+        Age:#{person.age},<p></p>
+        ID:#{person.bus}
+    </p:dataList>
 </h:body>
 </html>
